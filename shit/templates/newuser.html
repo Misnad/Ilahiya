@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block title %}Ilahiya Login{% endblock %}
+
+{% block body %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+   {% if messages %}
+      {% for category, message in messages %}
+        {% if category == 'error' %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% else %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+
+<main class="form-signin w-100 m-auto">
+    <form method="POST">
+        <div class="mb-4">
+            <label for="new_name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="new_name" id="name" minlength="4">
+        </div>
+        <div class="mb-3">
+            <label for="new_email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="new_email" name="new_email">
+            <div class="form-text">We'll never share your email with anyone else without your consent.</div>
+        </div>
+        <div class="mb-3">
+            <label for="new_password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="new_password" name="password" minlength="6">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Create Account">
+        </div>
+    </form>
+
+</main>
+{% endblock %}

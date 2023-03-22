@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+  {% for post in all_posts %}
+
+    <h2><a href="{{ url_for('view.reader') }}?post={{ post.id }}" >{{ post.title }}</a></h2>
+    <h5>{{ post.date.strftime("%B %d, %Y") }}</h5>
+    <h4>~ {{ users.get(post.author).name }}</h4>
+    <p>{{ post.content[0:40] }}...</p>
+    <br><br>
+  {% endfor %}
+{% endblock %}

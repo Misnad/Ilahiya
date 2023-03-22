@@ -1,0 +1,21 @@
+#reader_site_title {
+    padding: 1em 0 0.2em 0;
+    font-size: 1.5em;
+    font-family: 'IBM Plex serif', Lato, "Helvetica Neue", Arial, sans-serif;
+}
+
+#reader_site_title a {
+    color: #F8F8F8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#content {
+    font-size: 1.2em;
+    line-height: 1.6em;
+    color: #444;
+}
+
+#main_container {
+    min-height: 90%;
+}

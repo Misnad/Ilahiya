@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div><a href="{{ url_for('view.write') }}">Back</a></div>
+    <form action="/publish" , method="POST">
+        <label for="theme">Theme:</label>
+        <select name="theme">
+            <option value="article">Article</option>
+            <option value="poem">Poem</option>
+            <option value="image">Image</option>
+        </select>
+        <br>
+        <label for="author">Author</label>
+        <input type="text" id="author" name="author" value="{{ draft.author }}"><br>
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" value="{{ draft.title }}"><br>
+        <textarea name="content" placeholder="Write here...">{{ draft.content }}</textarea><br>
+        <input type="hidden" name="id" value="{{ draft.id }}" />
+        <input type="submit" value="SAVE" formaction="/save">
+        <input type="submit" value="PUBLISH">
+    </form>
+
+    {% if draft != None %}
+    <a href="delete?draft={{ draft.id }}"><button>DELETE DRAFT</button></a>
+    {% endif %}
+
+
+    <!-- <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Author</span>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+            aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
+            aria-describedby="basic-addon2">
+        <span class="input-group-text" id="basic-addon2">@example.com</span>
+    </div>
+
+    <div class="mb-3">
+        <label for="basic-url" class="form-label">Your vanity URL</label>
+        <div class="input-group">
+            <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        </div>
+        <div class="form-text">Example help text goes outside the input group.</div>
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text">$</span>
+        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+        <span class="input-group-text">.00</span>
+    </div>
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+        <span class="input-group-text">@</span>
+        <input type="text" class="form-control" placeholder="Server" aria-label="Server">
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-text">With textarea</span>
+        <textarea class="form-control" aria-label="With textarea"></textarea> -->
+    </div>
+
+
+</body>

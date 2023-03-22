@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block body %}
+
+<!-- <script>
+  function dlt() {
+    window.location.href = "";
+  }
+</script> -->
+
+<div style="margin-top: 0.5em;" class="list-group">
+  {% for draft in all_drafts %}
+  <div class="list-group-item list-group-item-action">
+    <a href="writer?draft={{ draft.id }}">{{ draft.title }}</a><a href="delete?draft={{ draft.id }}">
+      <button type="button" class="btn-close" style="float: right;" aria-label="Close"></button>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+
+<div style="text-align: center; margin: 2em 0;">
+  <a href="{{ url_for('view.writer') }}"><button class="btn btn-primary">Create New Post</button></a>
+</div>
+
+{% endblock %}
