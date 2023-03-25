@@ -12,6 +12,7 @@ db.init_app(app)
 
 from shit.auth import auth
 from shit.views import view
+from shit.models import Users
 
 app.register_blueprint(view, url_prefix='/')
 app.register_blueprint(auth, url_prefix="/")
