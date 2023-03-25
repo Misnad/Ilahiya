@@ -19,3 +19,11 @@
 #main_container {
     min-height: 90%;
 }
+
+h6 {
+    padding: 0.3em 0;
+}
+
+h5 {
+    padding: 0.3em 0 1.3em 0;
+}
