@@ -50,9 +50,9 @@
                         </label>
                     </div>
                     {% block body %}
-                        <h1>{{ post.title }}</h1>
+                        <h1>{{ post.title }}</h1><br>
                         <h6>{{ post.date.strftime("%B %d, %Y") }}</h6>
-                        <h5>~ {{ author }}</h5>
+                        <h5>~ {{ author }}</h5><br>
                         {% for para in content %}
                         {{para}}<br>
                         {% endfor %}
