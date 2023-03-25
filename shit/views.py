@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, url_for, request, redirect, flash
-from .models import Users, Posts, Drafts, Comments
-from . import db
 from flask_login import login_required, current_user
+from shit.models import Users, Posts, Drafts, Comments
+from shit import db
 import html
 
 view = Blueprint('view', __name__)
@@ -105,7 +105,7 @@ def reader():
 # TODOs
 # [x] Click post to open full in new page
 # [x] test on phone
-# [ ] Add git
+# [x] Add git
 # [ ] publish
 # [ ] About page
 # [ ] Ability to remove published posts

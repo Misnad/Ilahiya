@@ -1,10 +1,11 @@
-from . import db
+from shit import db
 from flask_login import UserMixin
 from datetime import datetime
 from sqlalchemy.sql import func
 
+
 class Users(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20))
     username = db.Column(db.String(20))
     email = db.Column(db.String(150), unique=True)
@@ -14,8 +15,9 @@ class Users(db.Model, UserMixin):
     def __repr__(self):
         return '<Users %r>' % self.id
 
+
 class Posts(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key=True)
     author = db.Column(db.Integer, db.ForeignKey(Users.id))
     title = db.Column(db.String(30))
     content = db.Column(db.Text)
@@ -24,8 +26,9 @@ class Posts(db.Model):
     def __repr__(self):
         return '<Posts %r>' % self.id
 
+
 class Drafts(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key=True)
     author = db.Column(db.Integer, db.ForeignKey(Users.id))
     title = db.Column(db.String(30))
     content = db.Column(db.Text)
@@ -37,8 +40,9 @@ class Drafts(db.Model):
     def __repr__(self):
         return '<Drafts %r>' % self.id
 
+
 class Comments(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key=True)
     author = db.Column(db.Integer, db.ForeignKey(Users.id))
     post = db.Column(db.Integer, db.ForeignKey(Posts.id))
     content = db.Column(db.Text)
