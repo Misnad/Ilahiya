@@ -19,7 +19,7 @@ class Users(db.Model, UserMixin):
 class Posts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     author = db.Column(db.Integer, db.ForeignKey(Users.id))
-    title = db.Column(db.String(30))
+    title = db.Column(db.String(127))
     content = db.Column(db.Text)
     date = db.Column(db.DateTime, default=datetime.utcnow())
 
@@ -30,7 +30,7 @@ class Posts(db.Model):
 class Drafts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     author = db.Column(db.Integer, db.ForeignKey(Users.id))
-    title = db.Column(db.String(30))
+    title = db.Column(db.String(127))
     content = db.Column(db.Text)
     date = db.Column(db.DateTime, default=datetime.utcnow())
 
