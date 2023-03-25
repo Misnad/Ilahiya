@@ -1,7 +1,4 @@
-from .models import Users, Posts, Drafts, Comments
-from .auth import auth
-from .views import view
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
@@ -12,6 +9,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///database.db"
 db = SQLAlchemy(app)
 db.init_app(app)
 
+
+from shit.auth import auth
+from shit.views import view
 
 app.register_blueprint(view, url_prefix='/')
 app.register_blueprint(auth, url_prefix="/")
